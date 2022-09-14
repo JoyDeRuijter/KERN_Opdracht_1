@@ -161,3 +161,102 @@ IItem <|-down- Banana: Interface
 IItem <|-down- BulletBill: Interface
 ICollectable <|-down- ItemBox: Interface
 ICollectable <|-down- Coin: Interface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Track {
+  +array Driver drivers
+  +array Crate crates
+  
+  void SpawnDrivers()
+}
+
+class Checkpoint {
+  +Vector3d pos
+  +bool isPassed
+}
+class StartLine {
+  +array StartSpot startSpots
+  +void CheckCheckpoints()
+}
+
+class StartSpot {
+  +Vector3d pos
+}
+
++interface IDestructable {
+  +void Destroy()
+}
+
+class MovingPlatform {
+  #Vector3d pos
+  
+  +Vector3d targetPos1
+  +Vector3d targetPos2
+  
+  void Move()
+}
+
+class Crate {
+  -float RespawnTimer
+  
+  +void Destroy()
+  -void Spawn()
+}
+
+class Booster
+
+class Ramp
+
+Track -down-*Checkpoint
+Track -down-*Booster
+Track -down-*Ramp
+Track -down-*MovingPlatform
+Track -down-*Crate
+Track -down-*StartLine
+
+StartLine -down-*StartSpot
+
+IDestructable <|-down- Crate
+
+Checkpoint <|-down- StartLine: Inheritance
+
+
+@enduml
