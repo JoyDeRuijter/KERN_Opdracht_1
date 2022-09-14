@@ -9,9 +9,26 @@ View using: https://www.planttext.com/
 title Mario Kart 8 - Class Diagram
 
 class PlayerKart {
+  float playerSpeed
+  float playerAcceleration
+  float playerWeight
+  float playerHandling
+  float playerTraction
+  float playerMiniTurbo
+  
+  Character selectedCharater
+  Kart selectedKart
+  Tires selectedTires
+  Glider selectedGlider
 }
 
 class KartComponent {
+  float speed
+  float acceleration
+  float weight
+  float handling
+  float traction
+  float miniTurbo
 }
 
 class Character
