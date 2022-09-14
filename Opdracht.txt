@@ -128,7 +128,7 @@ class ItemBox{
   +void OnCollisionEnter(Collision _player)
 }
 
-interface IItem{
+abstract class Item{
   +string name
   +float dropChance
   +void PickUp()
@@ -156,9 +156,9 @@ class BulletBill{
   +void Use()
 }
 
-IItem <|-down- RedShell: Interface
-IItem <|-down- Banana: Interface
-IItem <|-down- BulletBill: Interface
+Item <|-down- RedShell: Implementation
+Item <|-down- Banana: Implementation
+Item <|-down- BulletBill: Implementation
 ICollectable <|-down- ItemBox: Interface
 ICollectable <|-down- Coin: Interface
 
