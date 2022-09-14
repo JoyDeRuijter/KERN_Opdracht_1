@@ -109,6 +109,11 @@ interface ICollectable{
   +void Collect()
 }
 
+class ItemGiver{
+  +Item items[]
+  +Item GenerateItem(int playerPosition)
+}
+
 class Coin{
   +float respawnTime
   +void Destroy()
@@ -118,14 +123,13 @@ class Coin{
 }
 
 class ItemBox{
-  +Item items[]
-  +Item GenerateItem(int _playerPosition)
+  ItemGiver itemGiver
   +float respawnTime
   +void Destroy()
   +void Spawn()
   +void Collect()
   +float RespawnTimer()
-  +void OnCollisionEnter(Collision _player)
+  +void OnCollisionEnter(Collision player)
 }
 
 abstract class Item{
@@ -159,13 +163,9 @@ class BulletBill{
 Item <|-down- RedShell: Implementation
 Item <|-down- Banana: Implementation
 Item <|-down- BulletBill: Implementation
+ItemGiver *-- ItemBox: Has 
 ICollectable <|-down- ItemBox: Interface
 ICollectable <|-down- Coin: Interface
-
-
-
-
-
 
 
 
