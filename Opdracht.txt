@@ -102,24 +102,58 @@ PlayerKartSelector -left-*PlayerKart
 
 
 interface ICollectable{
+  +float respawnTime
+  +void respawnTimer()
+  +void Destroy()
+  +void Spawn()
+  +void Collect()
 }
 
 class Coin{
+  +float respawnTime
+  +void Destroy()
+  +void Spawn()
+  +void Collect()
+  +float RespawnTimer()
 }
 
 class ItemBox{
+  +Item items[]
+  +Item GenerateItem(int _playerPosition)
+  +float respawnTime
+  +void Destroy()
+  +void Spawn()
+  +void Collect()
+  +float RespawnTimer()
+  +void OnCollisionEnter(Collision _player)
 }
 
 interface IItem{
+  +string name
+  +float dropChance
+  +void PickUp()
+  +void Use()
 }
 
 class RedShell{
+  +string name
+  +float dropChance
+  +void PickUp()
+  +void Use()
 }
 
 class Banana{
+  +string name
+  +float dropChance
+  +void PickUp()
+  +void Use()
 }
 
 class BulletBill{
+  +string name
+  +float dropChance
+  +void PickUp()
+  +void Use()
 }
 
 IItem <|-down- RedShell: Interface
