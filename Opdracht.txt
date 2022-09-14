@@ -8,27 +8,43 @@ View using: https://www.planttext.com/
 
 title Mario Kart 8 - Class Diagram
 
+class PlayerKartSelector{
+ - array Character characterArray
+ - array Kart kartArray
+ - array Tires tiresArray
+ - array Glider gliderArray
+ 
+ +  PlayerKart player
+
+ - Character SetCharacter(PlayerKart player)
+ - Kart SetKart(PlayerKart player)
+ - Tires SetTires(PlayerKart player)
+ - Glider SetGlider(PlayerKart player)
+}
+
 class PlayerKart {
-  float playerSpeed
-  float playerAcceleration
-  float playerWeight
-  float playerHandling
-  float playerTraction
-  float playerMiniTurbo
+ - float playerSpeed
+ - float playerAcceleration
+ - float playerWeight
+ - float playerHandling
+ - float playerTraction
+ - float playerMiniTurbo
   
-  Character selectedCharater
-  Kart selectedKart
-  Tires selectedTires
-  Glider selectedGlider
+ + Character selectedCharacter
+ + Kart selectedKart
+ + Tires selectedTires
+ + Glider selectedGlider
+  
+ - void SetValues(Character c, Kart, k, Tires t, Glider g)
 }
 
 class KartComponent {
-  float speed
-  float acceleration
-  float weight
-  float handling
-  float traction
-  float miniTurbo
+ + float speed
+ + float acceleration
+ + float weight
+ + float handling
+ + float traction
+ + float miniTurbo
 }
 
 class Character
@@ -45,3 +61,5 @@ PlayerKart -up-*Kart
 PlayerKart -up-*Character
 PlayerKart -up-*Tires
 PlayerKart -up-*Glider
+
+PlayerKartSelector -left-*PlayerKart
