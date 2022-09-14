@@ -2,216 +2,29 @@ Emmie -->   4 t/m 103
 Joy   --> 104 t/m 203
 Marc  --> 204 t/m 303
 
-              ,-------------.           
-              |KartComponent|           
-              |-------------|           
-              |             |           
-              `-------------'           
-                                        
-                                        
-,---------.  ,----.   ,-----.   ,------.
-|Character|  |Kart|   |Tires|   |Glider|
-|---------|  |----|   |-----|   |------|
-`---------'  `----'   `-----'   `------'
-                                        
-               ,----------.             
-               |PlayerKart|             
-               |----------|             
-               |          |             
-               `----------'             
+View using: https://www.planttext.com/
 
+@startuml
 
+title Mario Kart 8 - Class Diagram
 
+class PlayerKart {
+}
 
+class KartComponent {
+}
 
+class Character
+class Kart
+class Tires
+class Glider
 
+KartComponent <|-down- Kart: Inheritance
+KartComponent <|-down- Character: Inheritance
+KartComponent <|-down- Tires: Inheritance
+KartComponent <|-down- Glider: Inheritance
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----- tracks
-
-               ,------------------.               
-,-----------.  |Checkpoint        |   ,----------.
-|RaceManager|  |------------------|   |TrackItems|
-|-----------|  |+Vector3d position|   |----------|
-`-----------'  |+bool isPassed    |   `----------'
-      |        `------------------'               
-      |                  |                        
-      |                  |                        
-   ,-----.       ,---------------.                
-   |Timer|       |StartCheckpoint|                
-   |-----|       |---------------|                
-   `-----'       `---------------'                
+PlayerKart -up-*Kart
+PlayerKart -up-*Character
+PlayerKart -up-*Tires
+PlayerKart -up-*Glider
