@@ -1,12 +1,12 @@
-Emmie -->   4 t/m 103
-Joy   --> 104 t/m 203
-Marc  --> 204 t/m 303
 
 View using: https://www.planttext.com/
 
 @startuml
 
 title Mario Kart 8 - Class Diagram
+
+
+' Emmie:
 
 class PlayerKartSelector{
  - array Character characterArray
@@ -65,41 +65,7 @@ PlayerKart -up-*Glider
 PlayerKartSelector -left-*PlayerKart
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+' Joy:
 
 interface ICollectable{
   +float respawnTime
@@ -168,61 +134,40 @@ ICollectable <|-down- ItemBox: Interface
 ICollectable <|-down- Coin: Interface
 
 
+' Marc:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
++interface IDestructable {
+  +void Destroy()
+}
 
 class Track {
   +array Driver drivers
   +array Crate crates
+  +array Coin coins
+  +array ItemBox itemBoxes
   
   void SpawnDrivers()
 }
 
+class Driver {
+  -Vector3d pos
+  +int racePosition
+  +array Checkpoint passedCheckpoints
+  
+  -void ResetCheckpoints
+  +void ResetDriver()
+  +void OntriggerEnter()
+}
+
 class Checkpoint {
   +Vector3d pos
-  +bool isPassed
 }
 class StartLine {
   +array StartSpot startSpots
-  +void CheckCheckpoints()
 }
 
 class StartSpot {
   +Vector3d pos
-}
-
-+interface IDestructable {
-  +void Destroy()
 }
 
 class MovingPlatform {
@@ -251,12 +196,16 @@ Track -down-*Ramp
 Track -down-*MovingPlatform
 Track -down-*Crate
 Track -down-*StartLine
+Track-up-*Coin
+Track-up-*ItemBox
 
 StartLine -down-*StartSpot
 
 IDestructable <|-down- Crate
 
 Checkpoint <|-down- StartLine: Inheritance
+
+Driver -- Checkpoint
 
 
 @enduml
