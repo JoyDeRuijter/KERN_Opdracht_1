@@ -63,3 +63,67 @@ PlayerKart -up-*Tires
 PlayerKart -up-*Glider
 
 PlayerKartSelector -left-*PlayerKart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+interface ICollectable{
+}
+
+class Coin{
+}
+
+class ItemBox{
+}
+
+interface IItem{
+}
+
+class RedShell{
+}
+
+class Banana{
+}
+
+class BulletBill{
+}
+
+IItem <|-down- RedShell: Interface
+IItem <|-down- Banana: Interface
+IItem <|-down- BulletBill: Interface
+ICollectable <|-down- ItemBox: Interface
+ICollectable <|-down- Coin: Interface
