@@ -28,4 +28,3 @@ PlayerKart -up-*Kart
 PlayerKart -up-*Character
 PlayerKart -up-*Tires
 PlayerKart -up-*Glider
-         
